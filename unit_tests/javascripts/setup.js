@@ -186,8 +186,8 @@ var getMeta = function(stack) {
   if(!e.stack) {
     return {};
   }
-  var s = e.stack.split(/@|at/m);
-  var match = s[level].match(/(.+\.js):(\d+)(?::(\d+))?/);
+  var s = e.stack.split('\n');
+  var match = s[level].match(/\s*at\s*(.+\.js):(\d+)(?::(\d+))?/);
   if(!match) match = [];
   return { file: match[1], line: match[2], col: match[3] };
 }
